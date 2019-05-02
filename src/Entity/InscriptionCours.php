@@ -11,22 +11,18 @@ class InscriptionCours
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $idCoursPlanifie;
 
     /**
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      */
     private $idUtilisateur;
 
     /**
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      */
     private $idMachine;

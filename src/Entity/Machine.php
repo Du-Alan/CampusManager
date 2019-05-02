@@ -14,11 +14,6 @@ class Machine
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $idMachine;
 
     /**
@@ -36,21 +31,9 @@ class Machine
      */
     private $passerelle;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getIdMachine(): ?int
     {
         return $this->idMachine;
-    }
-
-    public function setIdMachine(int $idMachine): self
-    {
-        $this->idMachine = $idMachine;
-
-        return $this;
     }
 
     public function getNom(): ?string

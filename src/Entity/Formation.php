@@ -14,11 +14,6 @@ class Formation
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $idFormation;
 
     /**
@@ -31,21 +26,19 @@ class Formation
      */
     private $dateDebut;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $lieu;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function getIdFormation(): ?int
     {
         return $this->idFormation;
-    }
-
-    public function setIdFormation(int $idFormation): self
-    {
-        $this->idFormation = $idFormation;
-
-        return $this;
     }
 
     public function getIdParcoursFormation(): ?int
@@ -68,6 +61,30 @@ class Formation
     public function setDateDebut(\DateTimeInterface $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

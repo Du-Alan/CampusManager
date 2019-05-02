@@ -14,11 +14,6 @@ class CoursPlanifie
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $idCoursPlanifie;
 
     /**
@@ -36,21 +31,10 @@ class CoursPlanifie
      */
     private $dateDebut;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getIdCoursPlanifie(): ?int
     {
         return $this->idCoursPlanifie;
-    }
-
-    public function setIdCoursPlanifie(int $idCoursPlanifie): self
-    {
-        $this->idCoursPlanifie = $idCoursPlanifie;
-
-        return $this;
     }
 
     public function getIdCours(): ?int

@@ -14,11 +14,6 @@ class Cours
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $idCours;
 
     /**
@@ -40,11 +35,6 @@ class Cours
      * @ORM\Column(type="string", length=50)
      */
     private $ref;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getIdCours(): ?int
     {

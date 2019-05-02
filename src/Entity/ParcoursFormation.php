@@ -14,11 +14,6 @@ class ParcoursFormation
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $idParcoursFormation;
 
     /**
@@ -26,21 +21,10 @@ class ParcoursFormation
      */
     private $libelle;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getIdParcoursFormation(): ?int
     {
         return $this->idParcoursFormation;
-    }
-
-    public function setIdParcoursFormation(int $idParcoursFormation): self
-    {
-        $this->idParcoursFormation = $idParcoursFormation;
-
-        return $this;
     }
 
     public function getLibelle(): ?string

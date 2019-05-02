@@ -11,17 +11,13 @@ class DetailParcoursFormation
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $idParcoursFormation;
 
+
     /**
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      */
     private $idCours;
@@ -31,22 +27,11 @@ class DetailParcoursFormation
      */
     private $ordre;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getIdParcoursFormation(): ?int
     {
         return $this->idParcoursFormation;
     }
 
-    public function setIdParcoursFormation(int $idParcoursFormation): self
-    {
-        $this->idParcoursFormation = $idParcoursFormation;
-
-        return $this;
-    }
 
     public function getIdCours(): ?int
     {
