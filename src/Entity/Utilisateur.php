@@ -20,7 +20,7 @@ class Utilisateur implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $username;
+    private $email;
 
     /**
      * @ORM\Column(type="json")
@@ -33,6 +33,13 @@ class Utilisateur implements UserInterface
      */
     private $password;
 
+    private $confirm_password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -44,11 +51,6 @@ class Utilisateur implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $civilite;
@@ -58,6 +60,18 @@ class Utilisateur implements UserInterface
         return $this->id;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
     /**
      * A visual identifier that represents this user.
      *
@@ -65,14 +79,7 @@ class Utilisateur implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
-    }
-
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
+        return (string) $this->email;
     }
 
     /**
@@ -126,6 +133,13 @@ class Utilisateur implements UserInterface
         // $this->plainPassword = null;
     }
 
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
     public function getNom(): ?string
     {
         return $this->nom;
@@ -150,18 +164,6 @@ class Utilisateur implements UserInterface
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     public function getCivilite(): ?bool
     {
         return $this->civilite;
@@ -173,4 +175,22 @@ class Utilisateur implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmPassword()
+    {
+        return $this->confirm_password;
+    }
+
+    /**
+     * @param mixed $confirm_password
+     */
+    public function setConfirmPassword($confirm_password): void
+    {
+        $this->confirm_password = $confirm_password;
+    }
+
+
 }
