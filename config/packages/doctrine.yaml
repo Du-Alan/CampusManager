@@ -3,7 +3,7 @@ parameters:
     # This allows you to run cache:warmup even if your
     # environment variables are not available yet.
     # You should not need to change this value.
-    env(DATABASE_URL): 'mysql://root:@localhost:3308/campus_manager'
+    env(DATABASE_URL): 'mysql://root:@localhost:3307/campus_manager'
 
 doctrine:
     dbal:
