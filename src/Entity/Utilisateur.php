@@ -4,10 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
  */
+//L'interface qu'on doit implémenter si on veut créer des users
 class Utilisateur implements UserInterface
 {
     /**
@@ -30,13 +31,17 @@ class Utilisateur implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="6", minMessage="Votre mot de passe doit faire minimum 6 caractères")
      */
     private $password;
 
+    /**
+     *@Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le même mot de passe")
+     */
     private $confirm_password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $username;
 
@@ -121,7 +126,7 @@ class Utilisateur implements UserInterface
      */
     public function getSalt()
     {
-        // not needed when using the "bcrypt" algorithm in security.yaml
+        // pas nécessaire si on utilise l'algorithm "bcrypt" dans security.yaml
     }
 
     /**
@@ -191,6 +196,8 @@ class Utilisateur implements UserInterface
     {
         $this->confirm_password = $confirm_password;
     }
+
+
 
 
 }
