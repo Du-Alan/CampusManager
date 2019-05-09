@@ -85,6 +85,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+        //faire la logique (ROLE_ADMIN/FORMATEUR) ici pour indiquer quel route choisir
         return new RedirectResponse($this->urlGenerator->generate('home_admin'));
     }
 
