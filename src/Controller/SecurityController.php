@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/registration", name="security_registration")
+     * @Route("/admin/registration", name="security_registration")
      */
     public function registration(Request $request, ObjectManager $manager,
                                  UserPasswordEncoderInterface $encoder)
@@ -65,7 +65,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/deconnexion", name="security_logout")
+     * @Route("/logout",name="security_logout")
      */
     public function logout(){}
 }

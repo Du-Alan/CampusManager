@@ -85,8 +85,21 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        //faire la logique (ROLE_ADMIN/FORMATEUR) ici pour indiquer quel route choisir
-        return new RedirectResponse($this->urlGenerator->generate('home_admin'));
+            $roles = $token->getRoles();
+
+            $rolesTab = array_map(function($role)
+            {
+                return $role->getRole();
+            },$roles);
+
+            if(in_array('ROLE_ADMIN',$rolesTab,true)){
+                $redirection = new RedirectResponse($this->urlGenerator->generate('security_registration'));
+            }
+            else{
+                $redirection = new RedirectResponse($this->urlGenerator->generate('home_formateur'));
+            }
+            return $redirection;
+
     }
 
     protected function getLoginUrl()

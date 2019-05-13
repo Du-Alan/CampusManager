@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <title>
@@ -7,19 +7,21 @@
                 Welcome!
             {% endblock %}
         </title>
+        {% if app.user %}
+        <li>
+            <a href="{{ path('security_logout') }}">Déconnexion</a>
+        </li>
+            {% else %}
+            <li>
+                <a href="{{ path('app_login') }}">Connexion </a>
+            </li>
+        {% endif %}
+
         {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
-        {% if not app.user %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('security_logout') }}">Déconnexion</a>
-            </li>
-        {% endif %}
+
         {% block body %}
         {% endblock %}
         {% block javascripts %}

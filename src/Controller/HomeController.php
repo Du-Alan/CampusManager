@@ -16,15 +16,4 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
-    /**
-     * @Route("/admin/home", name="home_admin")
-     */
-    public function indexAdmin()
-    {
-        return $this->render('home/indexAdmin.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
-
 }

@@ -84,7 +84,7 @@ class Utilisateur implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -94,7 +94,10 @@ class Utilisateur implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+
+        if (empty($this->roles)){
+            $roles[] = 'ROLE_USER';
+        }
 
         return array_unique($roles);
     }
