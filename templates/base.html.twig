@@ -11,6 +11,15 @@
         {% endblock %}
     </head>
     <body>
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_logout') }}">Déconnexion</a>
+            </li>
+        {% endif %}
         {% block body %}
         {% endblock %}
         {% block javascripts %}
