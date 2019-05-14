@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Inscription sur le site</h1>
+    <body class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Inscription Formateur</h1>
     {{ form_start(form) }}
-    {{ form_row(form.username, {'label': "Nom d\'utilisateur : ", 'attr':{'placeholder': "Entrez votre nom d\'utilisateur"}}) }}
-    {{ form_row(form.prenom, {'label': 'Prénom : ', 'attr':{'placeholder': 'Entrez votre prénom'}}) }}
-    {{ form_row(form.nom, {'label': 'Nom : ', 'attr':{'placeholder': 'Entrez votre nom'}}) }}
-    {{ form_row(form.password, {'label': 'Mot de passe : ', 'attr':{'placeholder': 'Entrez votre mot de passe'}}) }}
-    {{ form_row(form.confirm_password, {'label': 'Comfirmation mot de passe : ', 'attr':{'placeholder': 'Entrez à nouveau votre mot de passe'}}) }}
-    {{ form_row(form.email, {'label': 'Adresse Email : ', 'attr':{'placeholder': 'Entrez votre adresse email'}}) }}
+    {{ form_row(form.username, {'label': "Nom d\'utilisateur : ", 'attr':{'': "#"}}) }}
+    {{ form_row(form.prenom, {'label': 'Prénom : ', 'attr':{'#': '#'}}) }}
+    {{ form_row(form.nom, {'label': 'Nom : ', 'attr':{'#': '#'}}) }}
+    {{ form_row(form.password, {'label': 'Mot de passe : ', 'attr':{'#': '#'}}) }}
+    {{ form_row(form.confirm_password, {'label': 'Comfirmation mot de passe : ', 'attr':{'#': '#'}}) }}
+    {{ form_row(form.email, {'label': 'Adresse Email : ', 'attr':{'#': '#'}}) }}
     {{ form_row(form.civilite, {'label': 'Êtes vous une femme? : '}) }}
-    <button type="submit">Inscrire </button>
+    <button type="submit" class="btn btn-success">Inscrire </button>
     {{ form_end(form) }}
+    </body>
 
 {% endblock %}
