@@ -57,13 +57,19 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('security_registration');
         }
 
-
         //affiche la template ciblé
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
+    /**
+     * @Route("/admin/listUtilisateurs", name="security_list")
+     */
+    public function listAction()
+    {
+            return $this->render('security/listUtilisateur.html.twig');
+    }
     /**
      * @Route("/logout",name="security_logout")
      */

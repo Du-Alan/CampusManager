@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,8 +21,7 @@ class RegistrationType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-            ->add('civilite')
-        ;
+            ->add('civilite', ChoiceType::class, ['choices' => ['Homme' => 0, 'Femme' => 1,],]);;
     }
 
     public function configureOptions(OptionsResolver $resolver)
