@@ -2,10 +2,43 @@
 
 {% block body %}
     <body>
-    <section class="text-center w-50 m-auto">
+    <section class="text-right w-50 m-auto">
 
         <fieldset class="m-5">
-            <legend class="h3 mb-3 font-weight-normal"><a href="{{ path('security_registration') }}"> Créer un utilisateur</a> |  Liste d'utilisateurs </legend>
+            <legend class="text-center h3 mb-3 font-weight-normal"><a href="{{ path('security_registration') }}"> Créer un utilisateur</a> |  Liste d'utilisateurs </legend>
+                <button type="button" class="btn btn-outline-danger m-2 right">Supprimer</button>
+                <table class="text-center table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Civilité</th>
+                        <th>Sélection</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for utilisateur in utilisateurs%}
+                        <tr>
+                            <td>{{ utilisateur.nom }}</td>
+                            <td>{{ utilisateur.prenom }}</td>
+                            <td>{{ utilisateur.email }}</td>
+                            <td>{{ utilisateur.username }}</td>
+                            {% if ( utilisateur.civilite == false )%}
+                                <td>Monsieur</td>
+                            {% else %}
+                                <td>Madame</td>
+                            {% endif %}
+
+                        <td><input type="radio" name="selection" > </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
 
         </fieldset>

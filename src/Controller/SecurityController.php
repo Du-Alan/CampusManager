@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Utilisateur;
 use App\Form\RegistrationType;
+use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,7 +69,13 @@ class SecurityController extends AbstractController
      */
     public function listAction()
     {
-            return $this->render('security/listUtilisateur.html.twig');
+    $repo = $this->getDoctrine()->getRepository(Utilisateur::class);
+
+    $utilisateurs = $repo->findAll();
+        return $this->render('security/listUtilisateur.html.twig', [
+            'controller_name' => 'SecurityController',
+            'utilisateurs' => $utilisateurs
+        ]);
     }
     /**
      * @Route("/logout",name="security_logout")

@@ -6,18 +6,16 @@
             {{ form_start(form) }}
             <fieldset class="m-5">
                 <legend class="h3 mb-3 font-weight-normal">Créer un utilisateur | <a href="{{ path('security_list') }}">Liste d'utilisateurs</a> </legend>
-                <div class="w-auto">
-                    {{ form_row(form.username, {'label': "Nom d\'utilisateur : ", 'attr':{'': "#"}}) }}
-                    {{ form_row(form.prenom, {'label': 'Prénom : ', 'attr':{'#': '#'}}) }}
-                    {{ form_row(form.nom, {'label': 'Nom : ', 'attr':{'#': '#'}}) }}
-                    {{ form_row(form.civilite, {'label': 'Civilité : '}) }}
-                </div>
-                <div class="w-auto">
-                    {{ form_row(form.password, {'label': 'Mot de passe : ', 'attr':{'#': '#'}}) }}
-                    {{ form_row(form.confirm_password, {'label': 'Comfirmation mot de passe : ', 'attr':{'#': '#'}}) }}
-                    {{ form_row(form.email, {'label': 'Adresse Email : ', 'attr':{'#': '#'}}) }}
-                </div>
-            <button type="submit" class="btn btn-outline-success">Inscrire </button>
+
+                    {{ form_row(form.username, {'label': "Nom d\'utilisateur : ", 'attr':{'class': "form-control"}}) }}
+                    {{ form_row(form.prenom, {'label': 'Prénom : ', 'attr':{'class': 'form-control'}}) }}
+                    {{ form_row(form.nom, {'label': 'Nom : ', 'attr':{'class': 'form-control'}}) }}
+                    {{ form_row(form.password, {'label': 'Mot de passe : ', 'attr':{'class': 'form-control'}}) }}
+                    {{ form_row(form.confirm_password, {'label': 'Comfirmation mot de passe : ', 'attr':{'class': 'form-control'}}) }}
+                    {{ form_row(form.email, {'label': 'Adresse Email : ', 'attr':{'class': 'form-control'}}) }}
+                    {{ form_row(form.civilite, {'label': 'Civilité : ', 'attr':{'class': 'form-control'}}) }}
+
+            <button type="submit" class="btn btn-outline-success m-3">Inscrire </button>
             </fieldset>
             {{ form_end(form) }}
          </section>
