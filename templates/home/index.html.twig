@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 <style>
@@ -8,13 +8,43 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<fieldset>
+    <legend class="">Bienvenue
+        {% if  app.user.civilite == false %}
+            Monsieur
+        {% else %}
+            Madame
+        {% endif %}{{ app.user.nom}}
+    </legend>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/CampusManager/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/CampusManager/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <p>
+
+    </p>
+<div class="text-right">
+    <button type=button" class="btn btn-outline-success m-2">Ajouter une formation</button>
+    <button type="button" class="btn btn-outline-danger m-2">Annuler la formation</button>
 </div>
+    <table class="text-center table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Début Formation</th>
+                <th>Fin Formation</th>
+                <th>Détails</th>
+                <th>Sélection</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formation in formations %}
+                <tr>
+                    <td>{{ formation.parcoursFormation.libelle }}</td>
+                    <td>{{ formation.dateDebut | date('d/m/Y') }}</td>
+                    <td> TODO (fin : a calculer début + durée)</td>
+                    <td> TODO (détail : mettre chaque initial et en faire un lien détaillant la formation</td>
+                    <td><input type="radio" name="selection"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</fieldset>
 {% endblock %}

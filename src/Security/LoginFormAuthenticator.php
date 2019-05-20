@@ -93,10 +93,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             },$roles);
 
             if(in_array('ROLE_ADMIN',$rolesTab,true)){
-                $redirection = new RedirectResponse($this->urlGenerator->generate('security_registration'));
+                $redirection = new RedirectResponse($this->urlGenerator->generate('security_registration' ));
             }
             else{
-                $redirection = new RedirectResponse($this->urlGenerator->generate('home_formateur'));
+                $redirection = new RedirectResponse($this->urlGenerator->generate( 'home_formateur' ));
             }
             return $redirection;
 

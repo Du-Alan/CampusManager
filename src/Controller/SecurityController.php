@@ -50,6 +50,7 @@ class SecurityController extends AbstractController
             //l'encoder dans le security.yaml va se charger de hasher le mot de passe
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
+            $user->setRoles(['ROLE_USER']);
 
             $manager->persist($user);
             $manager->flush();
@@ -67,11 +68,11 @@ class SecurityController extends AbstractController
     /**
      * @Route("/admin/listUtilisateurs", name="security_list")
      */
-    public function listAction()
+    public function listAction(UtilisateurRepository $repo)
     {
-    $repo = $this->getDoctrine()->getRepository(Utilisateur::class);
 
     $utilisateurs = $repo->findAll();
+
         return $this->render('security/listUtilisateur.html.twig', [
             'controller_name' => 'SecurityController',
             'utilisateurs' => $utilisateurs

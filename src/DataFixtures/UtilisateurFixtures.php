@@ -31,7 +31,19 @@ class UtilisateurFixtures extends Fixture
             ->setPrenom('alan')
             ->setCivilite(0);
 
+        $user2 = new Utilisateur();
+        $user2->setEmail(sprintf('noAdmin@noAdmin.fr'))
+            ->setPassword($this->encoder->encodePassword($user2,'azerty'))
+            ->setUsername('noAdmin')
+            ->setRoles(['ROLE_USER'])
+            ->setNom('durand')
+            ->setPrenom('alan')
+            ->setCivilite(1);
+
+
+
         $manager->persist($user);
+        $manager->persist($user2);
         $manager->flush();
     }
 }
