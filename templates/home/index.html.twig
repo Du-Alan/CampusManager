@@ -32,7 +32,7 @@
         <tbody>
             {% for formation in formations %}
                 <tr>
-                   <td>formation.parcoursFormation.libelle </td>
+                   <td>{{ formation.parcoursFormation.libelle }} </td>
                     <td>{{ formation.dateDebut | date('d/m/Y') }}</td>
                     <td> TODO (fin : a calculer début + durée)</td>
                     <td> TODO (détail : mettre chaque initial et en faire un lien détaillant la formation</td>

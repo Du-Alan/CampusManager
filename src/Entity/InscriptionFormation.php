@@ -18,16 +18,19 @@ class InscriptionFormation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Formation", inversedBy="inscriptionFormations")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $formation;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $utilisateur;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Machine")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $machine;
 

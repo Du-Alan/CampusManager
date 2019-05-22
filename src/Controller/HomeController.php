@@ -55,4 +55,14 @@ class HomeController extends AbstractController
         ]);
     }
 
+//    /**
+//     * @Route("/updateParcours", name="formation_update"
+//     */
+//    public function updateParcours(){
+//        return $this->render('formation/updateParcours');
+//    }
+//    /**
+//     * @Route("/ajoutStagiaire",name="formation_add"
+//     */
+//    public function add(){}
 }

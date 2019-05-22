@@ -18,6 +18,7 @@ class CoursPlanifie
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Cours", inversedBy="coursPlanifies")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cours;
 

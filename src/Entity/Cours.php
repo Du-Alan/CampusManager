@@ -20,6 +20,7 @@ class Cours
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $utilisateur;
 

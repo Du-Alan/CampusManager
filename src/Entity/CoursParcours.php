@@ -18,11 +18,13 @@ class CoursParcours
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ParcoursFormation", inversedBy="coursParcours")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $parcoursFormation;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Cours")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cours;
 

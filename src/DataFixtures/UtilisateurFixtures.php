@@ -40,10 +40,25 @@ class UtilisateurFixtures extends Fixture
             ->setPrenom('alan')
             ->setCivilite(1);
 
+        $faker = \Faker\Factory::create('fr_FR');
 
+        for ( $i=1 ; $i <= 4 ; $i++ )
+        {
+            $user3 = new Utilisateur();
+            $user3->setEmail($faker->freeEmail)
+                ->setPassword($this->encoder->encodePassword($user3,'qsdfgh'))
+                ->setUsername($faker->userName)
+                ->setRoles(['ROLE_USER'])
+                ->setNom($faker->lastName)
+                ->setPrenom($faker->firstName)
+                ->setCivilite($faker->numberBetween($min=0,$max=1));
+
+            $manager->persist($user3);
+        }
 
         $manager->persist($user);
         $manager->persist($user2);
+
         $manager->flush();
     }
 }

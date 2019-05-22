@@ -20,6 +20,7 @@ class Formation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ParcoursFormation")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $parcoursFormation;
 
