@@ -3,11 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
 <fieldset>
     <legend class="">Bienvenue
         {% if  app.user.civilite == false %}
@@ -21,7 +16,7 @@
 
     </p>
 <div class="text-right">
-    <button type=button" class="btn btn-outline-success m-2">Ajouter une formation</button>
+    <a class="btn btn-outline-success m-2" href="{{ path('formation_create') }}">Ajouter une formation</a>
     <button type="button" class="btn btn-outline-danger m-2">Annuler la formation</button>
 </div>
     <table class="text-center table table-striped">
@@ -37,7 +32,7 @@
         <tbody>
             {% for formation in formations %}
                 <tr>
-                    <td>{{ formation.parcoursFormation.libelle }}</td>
+                   <td>formation.parcoursFormation.libelle </td>
                     <td>{{ formation.dateDebut | date('d/m/Y') }}</td>
                     <td> TODO (fin : a calculer début + durée)</td>
                     <td> TODO (détail : mettre chaque initial et en faire un lien détaillant la formation</td>

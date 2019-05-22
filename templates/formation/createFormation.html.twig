@@ -1,4 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>création d'un article</h1>
+    <fieldset>
+        <legend>Création Formation</legend>
+        <div class="text-center">
+            {{ form(formFormation) }}
+            <a class="btn btn-outline-success m-2" href="">Générer</a>
+        </div>
+    </fieldset>
+
+
+
 {% endblock %}
