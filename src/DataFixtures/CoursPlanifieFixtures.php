@@ -15,11 +15,11 @@ class CoursPlanifieFixtures extends Fixture implements DependentFixtureInterface
         $faker = \Faker\Factory::create('fr_FR');
         for($i=1;$i<=3;$i++)
         {
-            $cours = $manager->getRepository(Cours::class)->find(['id']);
+          
             $coursPlanifie = new CoursPlanifie();
             $coursPlanifie->setDateDebut($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
-                ->setDuree(new \DateTime($faker->time('H')))
-                ->setCours($cours);
+                ->setDuree(new \DateTime('now'))
+                ->setCours($this->getReference('cours'.$i));
 
 
             $manager->persist($coursPlanifie);

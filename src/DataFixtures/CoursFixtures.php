@@ -25,6 +25,7 @@ class CoursFixtures extends Fixture implements DependentFixtureInterface
                 ->setUtilisateur($this->getReference('user2'));
 
             $manager->persist($cours);
+            $this->addReference('cours'.$i, $cours);
 
         }
         $manager->flush();

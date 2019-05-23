@@ -17,10 +17,10 @@ class FormationFixtures extends Fixture implements DependentFixtureInterface
         $faker = \Faker\Factory::create('fr_FR');
         for($i=1;$i<=3;$i++)
         {
-            $parcours = $manager->getRepository(ParcoursFormation::class)->find(['id']);
+           //$parcours = $manager->getRepository(ParcoursFormation::class)->find(['id']);
             $coursPlanifie = new Formation();
             $coursPlanifie->setDateDebut($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
-                ->setParcoursFormation($parcours)
+                ->setParcoursFormation($this->getReference('parcours'.$i))
                 ->setLieu($faker->randomElement(['Nantes','Le Mans','Rennes ','Laval','Niort', 'Roche sur Yon', 'Angers','Quimper']));
 
 

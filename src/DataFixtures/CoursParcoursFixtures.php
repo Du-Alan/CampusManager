@@ -18,11 +18,11 @@ class CoursParcoursFixtures extends Fixture implements DependentFixtureInterface
         {
             $coursParcours = new CoursParcours();
 
-            $cours = $manager->getRepository(Cours::class)->find('id');
-            $parcoursFormation = $manager->getRepository(ParcoursFormation::class)->find('id');
+            //$cours = $manager->getRepository(Cours::class)->find('id');
+            //$parcoursFormation = $manager->getRepository(ParcoursFormation::class)->find('id');
 
-            $coursParcours->setCours($cours)
-                ->setParcoursFormation($parcoursFormation)
+            $coursParcours->setCours($this->getReference('cours'.$k))
+                ->setParcoursFormation($this->getReference('parcours'.$k))
                 ->setOrdre($faker->numberBetween($min = 1, $max = 20));
         }
         $manager->flush();
