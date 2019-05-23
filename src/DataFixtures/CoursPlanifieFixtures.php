@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Cours;
 use App\Entity\CoursPlanifie;
-use App\Repository\CoursRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

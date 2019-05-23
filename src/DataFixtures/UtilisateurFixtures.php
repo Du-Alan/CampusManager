@@ -39,7 +39,7 @@ class UtilisateurFixtures extends Fixture
             ->setNom('durand')
             ->setPrenom('alan')
             ->setCivilite(1);
-
+        $this->addReference('user2', $user2);
         $faker = \Faker\Factory::create('fr_FR');
 
         for ( $i=1 ; $i <= 4 ; $i++ )

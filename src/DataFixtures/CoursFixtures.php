@@ -17,14 +17,12 @@ class CoursFixtures extends Fixture implements DependentFixtureInterface
         for($i=1;$i<=3;$i++)
         {
             $cours = new Cours();
-            $user = null;
-            $user = $manager->getRepository(Utilisateur::class)->findOneBy(['roles'=='ROLES_USER']);
             $cours->setNom($faker->sentence())
                 ->setDateDebut($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
                 ->setDateFin($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
                 ->setAvecECF($faker->boolean())
                 ->setRef($faker->sentence())
-                ->setUtilisateur($user);
+                ->setUtilisateur($this->getReference('user2'));
 
             $manager->persist($cours);
 

@@ -24,6 +24,7 @@ class Cours
      */
     private $utilisateur;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
