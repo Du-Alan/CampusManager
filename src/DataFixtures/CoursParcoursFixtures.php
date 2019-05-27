@@ -14,16 +14,14 @@ class CoursParcoursFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for ($k = 1; $k <= 3; $k++)
+        for ($k = 1; $k <= 10; $k++)
         {
             $coursParcours = new CoursParcours();
-
-            //$cours = $manager->getRepository(Cours::class)->find('id');
-            //$parcoursFormation = $manager->getRepository(ParcoursFormation::class)->find('id');
 
             $coursParcours->setCours($this->getReference('cours'.$k))
                 ->setParcoursFormation($this->getReference('parcours'.$k))
                 ->setOrdre($faker->numberBetween($min = 1, $max = 20));
+            $manager->persist($coursParcours);
         }
         $manager->flush();
     }

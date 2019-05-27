@@ -14,7 +14,7 @@ class MachineFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for($i=1;$i<=3;$i++)
+        for($i=1;$i<=10;$i++)
         {
             $machine = new Machine();
             $machine->setNom($faker->domainWord)
@@ -24,7 +24,7 @@ class MachineFixtures extends Fixture
 
 
             $manager->persist($machine);
-
+            $this->addReference('machine'.$i,$machine);
         }
         $manager->flush();
     }

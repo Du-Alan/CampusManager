@@ -12,7 +12,7 @@ class ParcoursFormationFixtures extends Fixture
     {
         $faker = \Faker\Factory::create('fr_FR');
 
-        for ($j = 1; $j <= 3; $j++)
+        for ($j = 1; $j <= 10; $j++)
         {
             $parcours = new ParcoursFormation();
             $parcours->setLibelle($faker->sentence);

@@ -30,6 +30,11 @@ class Formation
     private $dateDebut;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateFin;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lieu;
@@ -76,6 +81,22 @@ class Formation
         $this->dateDebut = $dateDebut;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+
+    /**
+     * @param mixed $dateFin
+     */
+    public function setDateFin($dateFin): void
+    {
+        $this->dateFin = $dateFin;
     }
 
     public function getLieu(): ?string

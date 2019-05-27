@@ -27,8 +27,8 @@ class UtilisateurFixtures extends Fixture
             ->setPassword($this->encoder->encodePassword($user,'azerty'))
             ->setUsername('admin')
             ->setRoles(['ROLE_ADMIN'])
-            ->setNom('durand')
-            ->setPrenom('alan')
+            ->setNom('Durand')
+            ->setPrenom('Alan')
             ->setCivilite(0);
 
         $user2 = new Utilisateur();
@@ -36,8 +36,8 @@ class UtilisateurFixtures extends Fixture
             ->setPassword($this->encoder->encodePassword($user2,'azerty'))
             ->setUsername('noAdmin')
             ->setRoles(['ROLE_USER'])
-            ->setNom('durand')
-            ->setPrenom('alan')
+            ->setNom('Durand')
+            ->setPrenom('Alan')
             ->setCivilite(1);
         $this->addReference('user2', $user2);
         $faker = \Faker\Factory::create('fr_FR');

@@ -17,16 +17,15 @@ class InscriptionFormationFixtures extends Fixture implements DependentFixtureIn
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for ($k = 1; $k <= 3; $k++)
+        for ($k = 1; $k <= 10; $k++)
         {
             $inscriptionFormation = new InscriptionFormation();
 
-            $formation = $manager->getRepository(Formation::class)->find('id');
-            $machine = $manager->getRepository(Machine::class)->find('id');
 
-            $inscriptionFormation->setFormation($formation)
-            ->setMachine($machine);
-
+            $inscriptionFormation->setFormation($this->getReference('formation'.$k))
+            ->setMachine($this->getReference('machine'.$k))
+            ->setUtilisateur($this->getReference('user2'));
+            $manager->persist($inscriptionFormation);
         }
         $manager->flush();
     }

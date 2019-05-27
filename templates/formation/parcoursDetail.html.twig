@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body>
+    <section class="text-right w-50 m-auto">
+
+        <fieldset class="">
+            <legend class="text-center h3 mb-3 font-weight-normal"><a href="{{ path('security_registration') }}"> Créer un utilisateur</a> |  Liste d'utilisateurs </legend>
+            <button type="button" class=" btn btn-outline-danger my-2 ">Supprimer</button>
+            <table class="text-center table table-striped">
+                <thead>
+                <tr>
+                    <th>Ref</th>
+                    <th>Programme</th>
+                    <th>Durée</th>
+                    <th>Début du cours</th>
+                    <th>Modifier</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="radio" name="selection" > </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+        </fieldset>
+
+    </section>
+    </body>
+
+
+{% endblock %}

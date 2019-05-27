@@ -5,14 +5,24 @@
         <link rel="icon" href="eni.ico">
         <title>
             {% block title %}
-                Welcome!
+
             {% endblock %}
         </title>
-                    {% if app.user %}
-                        <li>
-                            <a  href="{{ path('security_logout') }}">Déconnexion</a>
-                        </li>
-                    {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">CampusManager</a>
+
+
+            <div class="collapse navbar-collapse" id="navId">
+                <ul class="navbar-nav mr-auto ">
+                        {% if app.user %}
+                            <li>
+                                <a  class="text-light" href="{{ path('security_logout') }}">Déconnexion</a>
+                            </li>
+                        {% endif %}
+                </ul>
+            </div>
+        </nav>
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
             {{ encore_entry_link_tags('app') }}

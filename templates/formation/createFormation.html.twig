@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <fieldset>
-        <legend>Création Formation</legend>
-        <div class="text-center">
-            {{ form(formFormation) }}
-            <a class="btn btn-outline-success m-2" href="">Générer</a>
-        </div>
-    </fieldset>
+    <section class="text-center w-75 m-auto">
+        {{ form_start(formFormation) }}
 
+            <legend class="h3 mb-3 font-weight-normal">Création Formation</legend>
 
+                {{ form_row(formFormation.parcoursFormation, {'label': "Choix du Parcours : ", 'attr':{'class': "form-control"}}) }}
+                {{ form_row(formFormation.dateDebut, {'label': "Date début du parcours : ", 'attr':{'class':"form-inline"}}) }}
+                {{ form_row(formFormation.dateFin, {'label': "Date fin du parcours : ", 'attr':{'class':"form-inline"}}) }}
+                {{ form_row(formFormation.lieu, {'label': "Lieu : ", 'attr':{'class': "form-control"}}) }}
+                {{ form_row(formFormation.description, {'label': "Description : ", 'attr':{'class': "form-control"}}) }}
+
+            <button type="submit" class="btn btn-outline-success m-2" >Générer</button>
+
+        {{ form_end(formFormation) }}
+    </section>
 
 {% endblock %}
