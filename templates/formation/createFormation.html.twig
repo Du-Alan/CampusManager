@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}Création Formation{% endblock%}
 {% block body %}
     <section class="text-center w-75 m-auto">
         {{ form_start(formFormation) }}
@@ -10,7 +11,7 @@
                 {{ form_row(formFormation.dateFin, {'label': "Date fin du parcours : ", 'attr':{'class':"form-inline"}}) }}
                 {{ form_row(formFormation.lieu, {'label': "Lieu : ", 'attr':{'class': "form-control"}}) }}
                 {{ form_row(formFormation.description, {'label': "Description : ", 'attr':{'class': "form-control"}}) }}
-
+            <a href="{{ path('home_formateur') }}" class="btn btn-outline-primary">Annuler</a>
             <button type="submit" class="btn btn-outline-success m-2" >Générer</button>
 
         {{ form_end(formFormation) }}

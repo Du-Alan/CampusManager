@@ -16,9 +16,10 @@ class ParcoursFormationFixtures extends Fixture
         {
             $parcours = new ParcoursFormation();
             $parcours->setLibelle($faker->sentence);
-
             $manager->persist($parcours);
             $this->addReference('parcours'.$j,$parcours);
+
+
         }
 
         $manager->flush();

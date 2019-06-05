@@ -9,7 +9,13 @@
             {% endblock %}
         </title>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">CampusManager</a>
+            {% if app.user is not empty %}
+                {% if app.user.roles == ['ROLE_ADMIN']%}
+                    <a class="navbar-brand" href="#">CampusManager</a>
+                {% else%}
+                    <a class="navbar-brand" href="{{ path('home_formateur') }}" >CampusManager</a>
+                {% endif %}
+            {% endif %}
 
 
             <div class="collapse navbar-collapse" id="navId">

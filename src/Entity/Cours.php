@@ -41,6 +41,11 @@ class Cours
     private $dateFin;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $duree;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $avecECF;

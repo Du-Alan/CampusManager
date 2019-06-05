@@ -21,7 +21,7 @@ class CoursFixtures extends Fixture implements DependentFixtureInterface
                 ->setDateDebut($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
                 ->setDateFin($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
                 ->setAvecECF($faker->boolean())
-                ->setRef($faker->sentence())
+                ->setRef($faker->ean8)
                 ->setUtilisateur($this->getReference('user2'));
 
             $manager->persist($cours);
