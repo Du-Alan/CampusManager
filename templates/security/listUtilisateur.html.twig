@@ -2,12 +2,13 @@
 {% block title %}Liste Utilisateurs!{% endblock %}
 {% block body %}
     <body>
-    <section class="text-right w-50 m-auto">
+    <section class="text-right w-75 m-auto">
 
-        <fieldset class="">
-            <legend class="text-center h3 mb-3 font-weight-normal"><a href="{{ path('security_registration') }}"> Créer un utilisateur</a> |  Liste d'utilisateurs </legend>
-                <button type="button" class=" btn btn-outline-danger my-2 ">Supprimer</button>
-                <table class="text-center table table-striped">
+        <section class="m-5">
+            <p class="text-center h3 mb-3 font-weight-normal"><a href="{{ path('security_registration') }}"> Créer un utilisateur</a> |  Liste d'utilisateurs </p>
+
+
+                <table class="text-center table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th>Nom</th>
@@ -30,16 +31,21 @@
                             {% else %}
                                 <td>Madame</td>
                             {% endif %}
-
-                        <td><input type="radio" name="selection" > </td>
-
+                            <td>
+                                <form method="post" action="{{ path('security_delete', {id: utilisateur.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir supprimer cet utilisateur ?')">
+                                    {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
+                                    <input type="hidden" name="_method" VALUE="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ utilisateur.id) }}">
+                                    <button class=" btn btn-outline-danger my-2">Supprimer</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
 
 
-        </fieldset>
+        </section>
 
     </section>
     </body>

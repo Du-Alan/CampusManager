@@ -200,7 +200,10 @@ class Utilisateur implements UserInterface
         $this->confirm_password = $confirm_password;
     }
 
-
+    public function __toString()
+    {
+        return $this->getId().$this->getNom();
+    }
 
 
 }

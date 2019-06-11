@@ -3,23 +3,23 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<fieldset>
-    <legend class="">Bienvenue
+<section>
+    <p class="font-weight-bold mx-5">Bienvenue
         {% if  app.user.civilite == false %}
             Monsieur
         {% else %}
             Madame
         {% endif %}{{ app.user.nom}}
-    </legend>
+    </p>
 
     <p>
 
     </p>
 <div class="text-right">
-    <a class="btn btn-outline-success m-2" href="{{ path('formation_create') }}">Ajouter une formation</a>
-    <button type="button" class="btn btn-outline-danger m-2">Annuler la formation</button>
+    <a class="btn btn-outline-success mx-5" href="{{ path('formation_create') }}">Ajouter une formation</a>
+
 </div>
-    <table class="text-center table table-striped">
+    <table class="text-center table table-striped table-bordered w-auto mx-5 my-3">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -36,10 +36,17 @@
                     <td>{{ formation.dateDebut | date('d/m/Y') }}</td>
                     <td>  TODO: formation.dateDebut + somme durée des cours dans un parcours</td>
                     <td> TODO (détail : mettre chaque initial et en faire un lien détaillant la formation</td>
-                    <td><input type="radio" name="selection"></td>
+                    <td>
+                        <form method="post" action="{{ path('formation_delete', {id: formation.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir supprimer cet formation ?')">
+                            {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
+                            <input type="hidden" name="_method" VALUE="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation.id) }}">
+                            <button class=" btn btn-outline-danger my-2">Annuler</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-</fieldset>
+</section>
 {% endblock %}

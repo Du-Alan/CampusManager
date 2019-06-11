@@ -41,7 +41,7 @@ class Cours
     private $dateFin;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
     private $duree;
 
@@ -116,6 +116,22 @@ class Cours
         $this->dateFin = $dateFin;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDuree()
+    {
+        return $this->duree;
+    }
+
+    /**
+     * @param mixed $duree
+     */
+    public function setDuree($duree): void
+    {
+        $this->duree = $duree;
     }
 
     public function getAvecECF(): ?bool

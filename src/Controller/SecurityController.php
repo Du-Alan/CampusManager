@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/admin/registration", name="security_registration")
+     * @Route("/admin/registration", name="security_registration", methods="GET|POST")
      */
     public function registration(Request $request, ObjectManager $manager,
                                  UserPasswordEncoderInterface $encoder)
@@ -54,6 +54,7 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('sucess', 'Utilisateur crée avec succès');
 
             //redirection vers la même page pour recréer un nouvel utilisateur
             return $this->redirectToRoute('security_registration');
@@ -66,7 +67,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/admin/listUtilisateurs", name="security_list")
+     * @Route("/admin/listUtilisateurs", name="security_list", methods="GET|POST")
      */
     public function listAction(UtilisateurRepository $repo)
     {
@@ -78,6 +79,24 @@ class SecurityController extends AbstractController
             'utilisateurs' => $utilisateurs
         ]);
     }
+
+    /**
+     * @Route ("/admin/Utilisateur/{id}", name="security_delete", methods="DELETE")
+     * @param Utilisateur $utilisateur
+     * @param ObjectManager $em
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteUser(Utilisateur $utilisateur, ObjectManager $em, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $utilisateur->getId(), $request->get('_token'))) {
+            $em->remove($utilisateur);
+            $em->flush();
+        }
+        return $this->redirectToRoute('security_list');
+    }
+
+
     /**
      * @Route("/logout",name="security_logout")
      */

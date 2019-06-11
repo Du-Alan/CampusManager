@@ -4,8 +4,8 @@
     <body>
          <section class="text-center w-50 m-auto">
             {{ form_start(form) }}
-            <fieldset class="m-5">
-                <legend class="h3 mb-3 font-weight-normal">Créer un utilisateur | <a href="{{ path('security_list') }}">Liste d'utilisateurs</a> </legend>
+            <section class="m-5">
+                <p class="h3 mb-3 font-weight-normal">Créer un utilisateur | <a href="{{ path('security_list') }}">Liste d'utilisateurs</a> </p>
 
                     {{ form_row(form.username, {'label': "Nom d\'utilisateur : ", 'attr':{'class': "form-control"}}) }}
                     {{ form_row(form.prenom, {'label': 'Prénom : ', 'attr':{'class': 'form-control'}}) }}
@@ -16,7 +16,7 @@
                     {{ form_row(form.civilite, {'label': 'Civilité : ', 'attr':{'class': 'form-control'}}) }}
 
             <button type="submit" class="btn btn-outline-success m-3">Inscrire</button>
-            </fieldset>
+            </section>
             {{ form_end(form) }}
          </section>
     </body>

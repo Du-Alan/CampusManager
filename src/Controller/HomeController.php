@@ -68,7 +68,7 @@ class HomeController extends AbstractController
 
         /* @var $coursParcours CoursParcours[] */
     $coursParcours = $formation ->getParcoursFormation()->getCoursParcours();
-    dump($formation);
+
         return $this->render('formation/parcoursDetail.html.twig', [
             'formation' => $formation, 'coursParcours' => $coursParcours,
         ]);
@@ -109,4 +109,18 @@ class HomeController extends AbstractController
             'formMachine' => $form2->createView()
         ]);
     }
+
+    /**
+     * @Route ("/deleteFormation/{id}", name="formation_delete", methods="DELETE")
+     */
+    public function deleteFormation(Formation $formation, ObjectManager $manager, Request $request)
+    {
+        if($this->isCsrfTokenValid('delete' . $formation->getId(), $request->get('_token')))
+        {
+            $manager->remove($formation);
+            $manager->flush();
+        }
+        return $this->redirectToRoute('home_formateur');
+    }
 }
+
