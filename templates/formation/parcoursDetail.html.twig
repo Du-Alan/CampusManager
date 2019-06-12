@@ -5,15 +5,10 @@
     <section class="w-100 m-auto">
 
 
-    <p>Détail Parcours</p>
-    <p>Parcours Choisi : {{ formation.parcoursFormation.libelle }}</p>
+        <p class="font-weight-bold text-center m-3">Vous avez choisi le parcours: {{ formation.parcoursFormation.libelle }} </p>
             <section>
 
-                <div class="text-right m-3">
-                    <button type="button" class="btn btn-outline-primary ">Modifier</button>
-                </div>
-
-                <table class="text-center table table-striped w-auto m-auto">
+                <table class="text-center table table-striped table-bordered w-75 mx-5 ml-3">
                     <thead>
                         <tr>
                             <th>Ref</th>
@@ -30,16 +25,23 @@
                             <td>{{ coursP.cours.nom }}</td>
                             <td>{{ coursP.cours.dateDebut | date('d/m/Y') }}</td>
                             <td>{{ coursP.cours.dateFin | date('d/m/Y') }}</td>
-                            <td><input type="radio" name="update"></td>
+                            <td>
+                                <form method="post" action="{{ path('security_delete', {id: coursP.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir modifier cet utilisateur ?')">
+                                    {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
+                                    <input type="hidden" name="_method" VALUE="EDIT">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('edit' ~ coursP.id) }}">
+                                    <button class=" btn btn-outline-primary my-2">Modifier</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </section>
 
-            <section>
-                <a href="{{ path('formation_create') }}" class=" btn btn-outline-primary my-2 ">Retour</a>
-                <a href="{{ path('stagiaire_add') }}" class="btn btn-outline-success my-2 ">Continuer - Inscription</a>
+            <section class="m-5">
+                <a href="{{ path('formation_create') }}" class=" btn btn-outline-primary ">Retour</a>
+                <a href="{{ path('stagiaire_add') }}" class="btn btn-outline-success  ">Continuer - Inscription</a>
             </section>
     </section>
 

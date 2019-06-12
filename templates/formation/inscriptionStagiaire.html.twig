@@ -5,7 +5,7 @@
 {% block body %}
     <div>
 
-        <section class="text-right w-25 m-auto position-fixed ">
+        <section class="text-right w-25 m-2 position-fixed ">
             <p class="font-weight-bold">Inscription :</p><br>
             {{ form_start(formStagiaire) }}
             {{ form_row(formStagiaire.prenom, {'label': "Prénom : "}) }}
@@ -16,7 +16,7 @@
             {{ form_end(formStagiaire) }}
         </section>
 
-        <section class="text-right w-50 m-auto position-sticky ">
+        <section class="text-right w-50 m-2 position-sticky ">
             <p class="font-weight-bold">Machine :</p><br>
             {{ form_start(formMachine) }}
             {{ form_row(formMachine.nom, {'label': "Nom de machine : "}) }}
@@ -34,7 +34,7 @@
 
     <section>
         <p>Utilisateurs inscrits</p>
-        <table class="text-center table table-striped">
+        <table class="text-center table table-striped table-bordered w-75 mx-5 my-3">
             <thead>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -52,7 +52,7 @@
             </tbody>
         </table>
     </section>
-    <section>
+    <section class="mx-5">
         <button type="button" class=" btn btn-outline-primary my-2 ">Retour</button>
         <a href="{{ path('home_formateur') }}" class="btn btn-outline-success my-2">Confirmer</a>
     </section>
