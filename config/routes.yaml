@@ -2,6 +2,6 @@
 #   path: /
 #   controller: App\Controller\DefaultController
 #
-login:
-   path: /login
-   defaults : { _controller : 'App\Controller\SecurityController::login' }
+#login:
+#   path: /login
+#   defaults : { _controller : 'App\Controller\SecurityController::login' }

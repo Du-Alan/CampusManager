@@ -14,6 +14,6 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->redirectToRoute('login');
+        return $this->redirectToRoute('app_login');
     }
 }

@@ -3,9 +3,8 @@
 {% block title %}Ajout Stagiaire{% endblock%}
 
 {% block body %}
-    <div>
-
-        <section class="text-right w-25 m-2 position-fixed ">
+    <div class="row">
+        <section class="text-right col-3 ">
             <p class="font-weight-bold">Inscription :</p><br>
             {{ form_start(formStagiaire) }}
             {{ form_row(formStagiaire.prenom, {'label': "Prénom : "}) }}
@@ -16,7 +15,7 @@
             {{ form_end(formStagiaire) }}
         </section>
 
-        <section class="text-right w-50 m-2 position-sticky ">
+        <section class="text-right col-3 ">
             <p class="font-weight-bold">Machine :</p><br>
             {{ form_start(formMachine) }}
             {{ form_row(formMachine.nom, {'label': "Nom de machine : "}) }}
@@ -26,8 +25,6 @@
             {{ form_end(formMachine) }}
             <input type="file" accept="text/csv">
             <button type="submit" class=" my-5 ">Ajouter</button>
-
-
         </section>
     </div>
 

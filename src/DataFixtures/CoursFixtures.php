@@ -12,7 +12,7 @@ class CoursFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for($i=1;$i<=10;$i++)
+        for($i=1;$i<=20;$i++)
         {
             $cours = new Cours();
             $cours->setNom($faker->sentence())
