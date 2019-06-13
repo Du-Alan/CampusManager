@@ -22,14 +22,14 @@ class CoursController extends AbstractController
         $this->em = $em;
     }
 
-//    /**
-//     * @Route("/editCours/{id}, name="cours_edit")
-//     * @param Cours $cours
-//     */
-//    public function edit(Cours $cours)
-//    {
-//
-//    }
+    /**
+     * @Route("/editCours/{id}", name="cours_edit")
+     * @param Cours $cours
+     */
+    public function edit(Cours $cours)
+    {
+//        Modifier toute les formations qui ont ce cours avec le méthode SommeDuree(Helper)
+    }
 }
 
 //Vidéo 21.03 pour le construct

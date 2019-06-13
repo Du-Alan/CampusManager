@@ -23,10 +23,11 @@
                         <tr>
                             <td>{{ coursP.cours.ref }}</td>
                             <td>{{ coursP.cours.nom }}</td>
+                            <td>{{ coursP.cours.duree }}h</td>
                             <td>{{ coursP.cours.dateDebut | date('d/m/Y') }}</td>
-                            <td>{{ coursP.cours.dateFin | date('d/m/Y') }}</td>
+
                             <td>
-                                <form method="post" action="{{ path('security_delete', {id: coursP.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir modifier cet utilisateur ?')">
+                                <form method="post" action="{{ path('cours_edit', {id: coursP.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir modifier cet utilisateur ?')">
                                     {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
                                     <input type="hidden" name="_method" VALUE="EDIT">
                                     <input type="hidden" name="_token" value="{{ csrf_token('edit' ~ coursP.id) }}">

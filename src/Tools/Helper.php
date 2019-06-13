@@ -5,6 +5,10 @@ namespace App\Tools;
 
 
 
+use App\Entity\Formation;
+use App\Entity\ParcoursFormation;
+
+
 class Helper
 {
     public static function abrevation(array $formation)
@@ -31,13 +35,32 @@ class Helper
          return $listeAbre;
     }
 
-    public static function sommeDuree(array $coursParcours)
+    public static function sommeDuree(ParcoursFormation $parcoursFormation, Formation $formation)
     {
-        $nbrCours = [] ;
-        for ($i = 0; $i < count($coursParcours); $i++)
-        {
-            $nbrCours[$i] = $coursParcours[$i]->getCours()->getDuree();
-        }
+        $coursParcours = $parcoursFormation->getCoursParcours();
+        $nbrHeureTotal = 0;
 
+        foreach ($coursParcours as $coursParcour)
+        {
+            $nbrHeureTotal += $coursParcour->getCours()->getDuree();
+        }
+        if ($nbrHeureTotal !== 0)
+        {
+            $nbrJours = 0;
+            while ($nbrHeureTotal>0)
+            {
+                $nbrJours++;
+                $nbrHeureTotal -= 7;
+            }
+
+
+            $dateFin = clone($formation->getDateDebut());
+            date_add( $dateFin, date_interval_create_from_date_string( $nbrJours.' weekdays' ) );
+
+            $formation->setDateFin($dateFin);
+
+        }
+        return $formation;
     }
+
 }

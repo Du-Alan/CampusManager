@@ -18,7 +18,6 @@ class CreateFormationType extends AbstractType
     {
         $builder
             ->add('dateDebut', DateType::class, ['widget' => 'single_text'])
-            ->add('dateFin')
             ->add('lieu')
             ->add('description')
             ->add('parcoursFormation', EntityType::class, [

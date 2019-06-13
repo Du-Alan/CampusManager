@@ -17,12 +17,12 @@ class CoursFixtures extends Fixture implements DependentFixtureInterface
             $cours = new Cours();
             $cours->setNom($faker->sentence())
                 ->setDateDebut($faker->dateTime($format = 'now', $timezone = 'Europe/Paris'))
+                ->setDuree($faker->numberBetween($min = 10, $max = 60))
                 ->setDateFin($faker->dateTime($min = 'now', $timezone = 'Europe/Paris'))
                 ->setAvecECF($faker->boolean())
                 ->setRef($faker->ean8)
                 ->setUtilisateur($this->getReference('user2'));
 
-            $cours ->setDuree(new \DateTime('now'));
 
             $manager->persist($cours);
             $this->addReference('cours'.$i, $cours);
