@@ -11,6 +11,7 @@ use App\Form\CreateFormationType;
 use App\Form\MachineType;
 use App\Repository\FormationRepository;
 use App\Repository\ParcoursFormationRepository;
+use App\Tools\Helper;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,11 +24,15 @@ class HomeController extends AbstractController
      */
     public function index(FormationRepository $repository)
     {
+
         $formations = $repository->findAll();
+
+        $abreviations = Helper::abrevation($formations);
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'formations' => $formations
+            'formations' => $formations,
+            'abreviations' => $abreviations,
         ]);
     }
     /**
@@ -68,6 +73,7 @@ class HomeController extends AbstractController
 
         /* @var $coursParcours CoursParcours[] */
     $coursParcours = $formation ->getParcoursFormation()->getCoursParcours();
+
 
         return $this->render('formation/parcoursDetail.html.twig', [
             'formation' => $formation, 'coursParcours' => $coursParcours,

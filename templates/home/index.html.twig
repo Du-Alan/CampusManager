@@ -35,7 +35,7 @@
                    <td>{{ formation.parcoursFormation.libelle }} </td>
                     <td>{{ formation.dateDebut | date('d/m/Y') }}</td>
                     <td>  TODO: formation.dateDebut + somme durée des cours dans un parcours</td>
-                    <td> TODO (détail : mettre chaque initial et en faire un lien détaillant la formation</td>
+                    <td><a href="{{ path('parcours_detail', {id: formation.id}) }}">{{ abreviations[loop.index0]|upper }} </a></td>
                     <td>
                         <form method="post" action="{{ path('formation_delete', {id: formation.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir supprimer cet formation ?')">
                             {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
@@ -46,6 +46,7 @@
                     </td>
                 </tr>
             {% endfor %}
+
         </tbody>
     </table>
 </section>
