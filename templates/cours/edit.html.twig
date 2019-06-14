@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Modifier le cours {{ cours.nom }}</h1>
+    {{ form_start(formCours) }}
+
+    {{ form_row(formCours.duree, {'label': "Durée : ", 'attr':{'class': "form-control"}})}}
+    {{ form_row(formCours.dateDebut, {'label': "Date début : ", 'attr':{'class': "form-control"}}) }}
+    {{ form_row(formCours.avecECF, {'label': "ECF : ", 'attr':{'class': "form-control"}}) }}
+    <button class="btn btn-outline-primary mt-3">Modifier</button>
+
+    {{ form_end(formCours) }}
+</div>
+
+{% endblock %}

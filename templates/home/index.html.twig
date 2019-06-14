@@ -3,9 +3,9 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<section>
-    <p class="font-weight-bold text-center m-3">Bienvenue
-        {% if  app.user.civilite == false %}
+<section class="container">
+    <p class="font-weight-bold  m-3">Bienvenue
+        {% if  app.user.civilite == false %}azert
             Monsieur
         {% else %}
             Madame
@@ -15,11 +15,11 @@
     <p>
 
     </p>
-<div class="text-right">
-    <a class="btn btn-outline-success mx-5" href="{{ path('formation_create') }}">Ajouter une formation</a>
-
+<div class="text-right mb-3">
+    <a class="btn btn-outline-success " href="{{ path('formation_create') }}">Ajouter une formation</a>
 </div>
-    <table class="text-center table table-striped table-bordered w-75 mx-5 my-3">
+
+    <table class="text-center table table-striped table-bordered  ">
         <thead>
             <tr>
                 <th>Nom</th>

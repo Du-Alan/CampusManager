@@ -6,9 +6,9 @@
 
 
         <p class="font-weight-bold text-center m-3">Vous avez choisi le parcours: {{ formation.parcoursFormation.libelle }} </p>
-            <section>
+            <section class="container">
 
-                <table class="text-center table table-striped table-bordered w-75 mx-5 ml-3">
+                <table class="text-center table table-striped table-bordered w-100  ">
                     <thead>
                         <tr>
                             <th>Ref</th>
@@ -25,22 +25,14 @@
                             <td>{{ coursP.cours.nom }}</td>
                             <td>{{ coursP.cours.duree }}h</td>
                             <td>{{ coursP.cours.dateDebut | date('d/m/Y') }}</td>
-
                             <td>
-                                <form method="post" action="{{ path('cours_edit', {id: coursP.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur de vouloir modifier cet utilisateur ?')">
-                                    {# "_method" est un paramètre compris par symfony qui donne une méthode différent de GET/POST et on lui donne une "value"#}
-                                    <input type="hidden" name="_method" VALUE="EDIT">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('edit' ~ coursP.id) }}">
-                                    <button class=" btn btn-outline-primary my-2">Modifier</button>
-                                </form>
+                                <a href="{{ path('cours_edit', {id: coursP.id}) }}" class="btn btn-outline-primary">Editer</a>
                             </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-            </section>
 
-            <section class="m-5">
                 <a href="{{ path('formation_create') }}" class=" btn btn-outline-primary ">Retour</a>
                 <a href="{{ path('stagiaire_add') }}" class="btn btn-outline-success  ">Continuer - Inscription</a>
             </section>

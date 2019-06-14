@@ -35,6 +35,10 @@ class HomeController extends AbstractController
             'abreviations' => $abreviations,
         ]);
     }
+
+
+
+
     /**
      * @Route("/formation/new", name="formation_create")
      */
@@ -46,44 +50,32 @@ class HomeController extends AbstractController
         //Instancie le formulaire avec les paramètres de l'entité "formation"
         $form = $this->createForm(CreateFormationType::class, $formation);
 
-
         //analyse la requête http passer en paramètre
         $form->handleRequest($request);
 
         //vérifie que le formulaire est soumis et que ses champs sont valides
         if($form->isSubmitted() && $form->isValid())
         {
-
             $formation= Helper::sommeDuree($formation->getParcoursFormation(), $formation);
 
             $manager->persist($formation);
             $manager->flush();
 
-
             //redirection vers la page listant tout les cours du parcours
             return $this->redirectToRoute('parcours_detail', ['id' => $formation->getId()
             ]);
         }
-//
 
         return $this->render('formation/createFormation.html.twig', [
             'formFormation' => $form->createView()
         ]);
     }
 
-    /**
-     * @Route("/updateParcours/{id}", name="parcours_detail")
-     */
-    public function listParcours(Formation $formation ){
-
-        /* @var $coursParcours CoursParcours[] */
-    $coursParcours = $formation ->getParcoursFormation()->getCoursParcours();
 
 
-        return $this->render('formation/parcoursDetail.html.twig', [
-            'formation' => $formation, 'coursParcours' => $coursParcours,
-        ]);
-    }
+
+
+
 
     /**
      * @Route("/ajoutStagiaire", name="stagiaire_add")

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}Création Formation{% endblock%}
 {% block body %}
-    <section class="text-center w-75 m-auto">
+    <section class="text-center container">
         {{ form_start(formFormation) }}
 
-            <legend class="h3 mb-3 font-weight-normal">Création Formation</legend>
+            <p class="font-weight-bold">Création Formation</p>
 
                 {{ form_row(formFormation.parcoursFormation, {'label': "Choix du Parcours : ", 'attr':{'class': "form-control"}}) }}
                 {{ form_row(formFormation.dateDebut, {'label': "Date début du parcours : ", 'attr':{'class':"form-inline"}}) }}
