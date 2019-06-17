@@ -33,14 +33,20 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/admin/registration", name="security_registration", methods="GET|POST")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param UserPasswordEncoderInterface $encoder
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function registration(Request $request, ObjectManager $manager,
                                  UserPasswordEncoderInterface $encoder)
     {
         //Instancie l'objet Utilisateur
         $user = new Utilisateur();
+
         //Instancie le formulaire avec le paramètre $user
         $form = $this->createForm(RegistrationType::class, $user);
+
         //analyse la requête
         $form->handleRequest($request);
 
@@ -68,11 +74,13 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/admin/listUtilisateurs", name="security_list", methods="GET|POST")
+     * @param UtilisateurRepository $repo
+     * @return Response
      */
     public function listAction(UtilisateurRepository $repo)
     {
-
-    $utilisateurs = $repo->findAll();
+        //Le repository se charge de trouver tout les utilisateur présent dans la base de données
+        $utilisateurs = $repo->findAll();
 
         return $this->render('security/listUtilisateur.html.twig', [
             'controller_name' => 'SecurityController',

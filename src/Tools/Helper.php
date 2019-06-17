@@ -11,7 +11,7 @@ use App\Entity\ParcoursFormation;
 
 class Helper
 {
-    public static function abrevation(array $formation)
+    public static function abreviation(array $formation)
     {
         $listeAbre = [];
         $listeLibelle = [];
@@ -23,7 +23,6 @@ class Helper
          for ($i = 0; $i < count($listeLibelle); $i++)
          {
              $abre = '';
-             $temp = [];
              $temp = explode(' ', $listeLibelle[$i]);
              for ($j = 0; $j < count($temp); $j++)
              {

@@ -27,7 +27,7 @@ class HomeController extends AbstractController
 
         $formations = $repository->findAll();
 
-        $abreviations = Helper::abrevation($formations);
+        $abreviations = Helper::abreviation($formations);
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

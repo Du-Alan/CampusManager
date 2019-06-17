@@ -22,5 +22,4 @@ class ParcoursFormationFixtures extends Fixture
 
         $manager->flush();
     }
-
 }

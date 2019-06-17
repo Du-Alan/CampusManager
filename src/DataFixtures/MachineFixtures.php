@@ -28,5 +28,4 @@ class MachineFixtures extends Fixture
         }
         $manager->flush();
     }
-
 }
